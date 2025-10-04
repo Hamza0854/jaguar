@@ -511,7 +511,7 @@
                                 <p>Your account has been created successfully.</p>
                             </div>
                             
-                            <a href="profile.html" class="ibtn">Go to Profile Now</a>
+                            <a href="../dash/profile.html" class="ibtn">Go to Profile Now</a>
                         </div>
                         
                     </div>
@@ -749,12 +749,15 @@ function handleRedirectResult() {
             console.error("Sign-in error:", error);
         });
 }
-
+window.onload = function() {
+    handleRedirectResult();
+    document.getElementById('google-signin')?.addEventListener('click', handleGoogleSignIn);
+};
 // Example: when Google Sign-In button clicked
-function handleGoogleSignIn() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
-}
+// function handleGoogleSignIn() {
+//     const provider = new firebase.auth.GoogleAuthProvider();
+//     firebase.auth().signInWithRedirect(provider);
+// }
 
 </script>
 </body>
