@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-938MEPBEW8"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+  gtag('config', 'G-938MEPBEW8'); // <--
+
+</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jaguar WebStudios - User Dashboard">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ03L9K3ME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SZ03L9K3ME');
+    </script>
+
+    <!-- ========== Page Title ========== -->
+    <title>User Dashboard - Jaguar Web Studios</title>
+
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="assets/css/elegant-icons.css" rel="stylesheet" />
+    <link href="assets/css/flaticon-set.css" rel="stylesheet" />
+    <link href="assets/css/magnific-popup.css" rel="stylesheet" />
+    <link href="assets/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="assets/css/bootsnav.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5/html5shiv.min.js"></script>
+      <script src="assets/js/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+
+    <style>
+        .profile-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            flex-direction: column;
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .profile-info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .info-value {
+            color: #666;
+        }
+        
+        .action-buttons {
+            margin-top: 30px;
+        }
+        
+        .btn-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        .dropdown-header {
+            padding: 10px 20px !important;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .dropdown-menu {
+            min-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border: none;
+        }
+        
+        .dropdown-menu li a {
+            padding: 8px 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-menu li a:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .dropdown-menu li a i {
+            width: 16px;
+            margin-right: 8px;
+        }
+        
+        #nav-user-avatar {
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-nav > li > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="se-pre-con"></div>
+    <!-- Preloader Ends -->
+
+    <!-- Start Header Top -->
+    <div class="top-bar-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" class="logo" alt="Logo">
+                    </a>
+                </div>
+                <div class="col-md-9 address-info text-right">
+                    <div class="info box">
+                        <ul>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-email"></i>
+                                </div>
+                                <div class="info">
+                                    <span>Email</span> Info@jaguarweb-studios.online
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="flaticon-call-center"></i>
+                                </div>
+                                <div class="info">
+                                    <span>Phone</span> 1-866-252-3313
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top -->
+
+    <!-- Header -->
+    <header id="home">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border active-border logo-less small-pad navbar-sticky bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo.png" class="logo" alt="Logo">
+                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/service.html">Services</a></li>
+                        <li><a href="pricing-table.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li id="profile-nav" style="display: none;"><a href="profile.html">Dashboard</a></li>
+                        <li id="logout-nav" style="display: none;"><a href="#" onclick="logoutUser()">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Breadcrumb -->
+    <div class="breadcrumb-area bg-gray text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active">Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Start User Dashboard Area -->
+    <div class="contact-area default-padding-top bottom-half">
+        <div class="container">
+            
+            <!-- Loading State -->
+            <div id="loading-state" class="profile-loading">
+                <div class="spinner"></div>
+                <h3>Loading your dashboard...</h3>
+                <p>Please wait while we fetch your information.</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" style="display: none;">
+                <div class="error-message">
+                    <h4>Unable to Load Dashboard</h4>
+                    <p id="error-text">Please try refreshing the page or contact support.</p>
+                    <button class="btn btn-custom" onclick="location.reload()">Retry</button>
+                </div>
+            </div>
+
+            <!-- User Profile Content -->
+            <div id="profile-content" style="display: none;">
+                
+                <!-- Profile Header -->
+                <div class="profile-header text-center">
+                    <img id="profile-avatar" src="assets/img/default-avatar.png" alt="Profile Picture" class="profile-avatar">
+                    <h2 id="user-display-name">Loading...</h2>
+                    <p id="user-email">Loading...</p>
+                    <p><small>Member since: <span id="member-since">Loading...</span></small></p>
+                </div>
+
+                <div class="row">
+                    <!-- Stats Cards -->
+                    <div class="col-md-4">
+                        <div class="stats-card text-center">
+                            <div class="stats-number" id="projects-count">0</div>
+                            <h4>Active Projects</h4>
+                            <p class="text-muted">Currently in progress</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="stats-card text-center">
+                            <div class="stats-number" id="completed-count">0</div>
+                            <h4>Completed</h4>
+                            <p class="text-muted">Successfully delivered</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="stats-card text-center">
+                            <div class="stats-number" id="support-tickets">0</div>
+                            <h4>Support Tickets</h4>
+                            <p class="text-muted">Open requests</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Profile Information -->
+                    <div class="col-md-8">
+                        <div class="profile-info-card">
+                            <h3 style="margin-bottom: 25px;">Profile Information</h3>
+                            
+                            <div class="info-row">
+                                <span class="info-label">Full Name:</span>
+                                <span class="info-value" id="full-name">Loading...</span>
+                            </div>
+                            
+                            <div class="info-row">
+                                <span class="info-label">Email Address:</span>
+                                <span class="info-value" id="email-display">Loading...</span>
+                            </div>
+                            
+                            <div class="info-row">
+                                <span class="info-label">Phone Number:</span>
+                                <span class="info-value" id="phone-number">Not provided</span>
+                            </div>
+                            
+                            <div class="info-row">
+                                <span class="info-label">Company:</span>
+                                <span class="info-value" id="company-name">Not provided</span>
+                            </div>
+                            
+                            <div class="info-row">
+                                <span class="info-label">Account Type:</span>
+                                <span class="info-value" id="account-type">Standard</span>
+                            </div>
+                            
+                            <div class="info-row">
+                                <span class="info-label">Last Login:</span>
+                                <span class="info-value" id="last-login">Loading...</span>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn btn-custom" onclick="editProfile()">
+                                    <i class="fa fa-edit"></i> Edit Profile
+                                </button>
+                                <button class="btn btn-custom" onclick="viewProjects()">
+                                    <i class="fa fa-folder"></i> View Projects
+                                </button>
+                                <button class="btn btn-custom" onclick="contactSupport()">
+                                    <i class="fa fa-support"></i> Support
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="col-md-4">
+                        <div class="profile-info-card">
+                            <h4 style="margin-bottom: 20px;">Quick Actions</h4>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <button class="btn btn-outline-primary btn-block" onclick="startNewProject()">
+                                    <i class="fa fa-plus"></i> New Project Request
+                                </button>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <button class="btn btn-outline-success btn-block" onclick="viewInvoices()">
+                                    <i class="fa fa-file-text"></i> View Invoices
+                                </button>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <button class="btn btn-outline-info btn-block" onclick="downloadReports()">
+                                    <i class="fa fa-download"></i> Download Reports
+                                </button>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <button class="btn btn-outline-warning btn-block" onclick="updatePayment()">
+                                    <i class="fa fa-credit-card"></i> Payment Methods
+                                </button>
+                            </div>
+
+                            <hr>
+                            
+                            <h5>Account Status</h5>
+                            <div style="margin-top: 15px;">
+                                <span class="badge badge-success" id="account-status">Active</span>
+                                <p class="text-muted small" style="margin-top: 10px;">
+                                    Your account is in good standing. All services are available.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End User Dashboard Area -->
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" style="margin-top: 60px;">
+        <div class="container">
+            <div class="footer-content default-padding">
+                <div class="row">
+                    <div class="equal-height col-md-4 col-sm-6 item">
+                        <div class="f-item about">
+                            <h4 class="widget-title">About</h4>
+                            <p>
+                                Jaguar Web Studios is your trusted partner for professional website development, modern design, and powerful SEO solutions. We help businesses build a strong digital presence that drives real results.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="equal-height col-md-2 col-sm-6 item">
+                        <div class="f-item link">
+                            <h4 class="widget-title">Useful Links</h4>
+                            <ul>
+                                <li><a href="pages/service.html">Services</a></li>
+                                <li><a href="pricing-table.html">Pricing</a></li>
+                                <li><a href="contact.html">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equal-height col-md-4 col-sm-6 item">
+                        <div class="f-item contact address">
+                            <h4 class="widget-title">Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <div class="icon">
+                                        <i class="flaticon-call-center"></i>
+                                    </div>
+                                    <span>1-866-252-3313</span>
+                                </li>
+                                <li>
+                                    <div class="icon"><i class="flaticon-email"></i></div>
+                                    <span>Info@jaguarweb-studios.online</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>© 2025 Jaguar Web Studios. All rights reserved. Expertly crafted websites, design, and SEO to grow your online presence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/equal-height.min.js"></script>
+    <script src="assets/js/jquery.appear.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/modernizr.custom.13711.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/progress-bar.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/count-to.js"></script>
+    <script src="assets/js/YTPlayer.min.js"></script>
+    <script src="assets/js/circle-progress.js"></script>
+    <script src="assets/js/bootsnav.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKmAHeSqw6hX3Bvdi2cbGwCvprroObTK4",
+            authDomain: "jaguarwebsolutions-42b13.firebaseapp.com",
+            projectId: "jaguarwebsolutions-42b13",
+            storageBucket: "jaguarwebsolutions-42b13.firebasestorage.app",
+            messagingSenderId: "307062943289",
+            appId: "1:307062943289:web:f314717ffaa37ce7f8e7e8",
+            measurementId: "G-938MEPBEW8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Global variables for other functions
+        window.auth = auth;
+        window.db = db;
+
+        // Authentication state listener
+        onAuthStateChanged(auth, async (user) => {
+            const loadingState = document.getElementById('loading-state');
+            const errorState = document.getElementById('error-state');
+            const profileContent = document.getElementById('profile-content');
+            const profileNav = document.getElementById('profile-nav');
+            const userProfileNav = document.getElementById('user-profile-nav');
+
+            if (user) {
+                try {
+                    // Show navigation items for authenticated users
+                    if (profileNav) profileNav.style.display = 'block';
+                    if (userProfileNav) userProfileNav.style.display = 'block';
+
+                    // Fetch user data from Firestore
+                    const userDocRef = doc(db, "users", user.uid);
+                    const userDoc = await getDoc(userDocRef);
+                    
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        displayUserProfile(user, userData);
+                    } else {
+                        // Create basic profile with Firebase auth data
+                        const basicUserData = {
+                            displayName: user.displayName || 'New User',
+                            email: user.email,
+                            createdAt: user.metadata.creationTime,
+                            lastLoginAt: user.metadata.lastSignInTime
+                        };
+                        displayUserProfile(user, basicUserData);
+                    }
+                    
+                    // Hide loading, show profile
+                    loadingState.style.display = 'none';
+                    profileContent.style.display = 'block';
+                    
+                } catch (error) {
+                    console.error("Error fetching user data:", error);
+                    showError("Failed to load user data. Please try again.");
+                }
+            } else {
+                // User is not signed in, redirect to login
+                window.location.href = "/login.html";
+            }
+        });
+
+        // Display user profile function
+        function displayUserProfile(user, userData) {
+            // Update navigation profile
+            document.getElementById('nav-user-avatar').src = user.photoURL || 'assets/img/default-avatar.png';
+            document.getElementById('nav-user-name').textContent = userData.displayName || user.displayName || 'User';
+            document.getElementById('nav-user-email').textContent = user.email;
+            
+            // Profile header
+            document.getElementById('profile-avatar').src = user.photoURL || 'assets/img/default-avatar.png';
+            document.getElementById('user-display-name').textContent = userData.displayName || user.displayName || 'User';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('member-since').textContent = new Date(user.metadata.creationTime).toLocaleDateString();
+
+            // Profile information
+            document.getElementById('full-name').textContent = userData.fullName || userData.displayName || user.displayName || 'Not provided';
+            document.getElementById('email-display').textContent = user.email;
+            document.getElementById('phone-number').textContent = userData.phone || 'Not provided';
+            document.getElementById('company-name').textContent = userData.company || 'Not provided';
+            document.getElementById('account-type').textContent = userData.accountType || 'Standard';
+            document.getElementById('last-login').textContent = new Date(user.metadata.lastSignInTime).toLocaleString();
+
+            // Stats (you can populate these from your Firestore data)
+            document.getElementById('projects-count').textContent = userData.activeProjects || '0';
+            document.getElementById('completed-count').textContent = userData.completedProjects || '0';
+            document.getElementById('support-tickets').textContent = userData.supportTickets || '0';
+
+            // Account status
+            document.getElementById('account-status').textContent = userData.accountStatus || 'Active';
+            document.getElementById('account-status').className = `badge badge-${userData.accountStatus === 'Active' ? 'success' : 'warning'}`;
+        }
+
+        // Error display function
+        function showError(message) {
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('error-text').textContent = message;
+            document.getElementById('error-state').style.display = 'block';
+        }
+
+        // Logout function
+        window.logoutUser = async () => {
+            try {
+                await signOut(auth);
+                window.location.href = "/index.html";
+            } catch (error) {
+                console.error("Logout error:", error);
+                alert("Error signing out. Please try again.");
+            }
+        };
+
+        // Action button functions (implement these based on your needs)
+        window.editProfile = () => {
+            alert("Edit Profile functionality - implement based on your requirements");
+        };
+
+        window.viewProjects = () => {
+            alert("View Projects functionality - implement based on your requirements");
+        };
+
+        window.contactSupport = () => {
+            window.location.href = "/contact.html";
+        };
+
+        window.startNewProject = () => {
+            alert("New Project functionality - implement based on your requirements");
+        };
+
+        window.viewInvoices = () => {
+            alert("View Invoices functionality - implement based on your requirements");
+        };
+
+        window.downloadReports = () => {
+            alert("Download Reports functionality - implement based on your requirements");
+        };
+
+        window.updatePayment = () => {
+            alert("Update Payment functionality - implement based on your requirements");
+        };
+    </script>
+    <script src="bundle.js"></script>
+
+</body>
+</html>

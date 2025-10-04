@@ -1,0 +1,187 @@
+/*==========================================
+    testimonial
+===========================================*/
+// for index-2
+.testimonial {
+    padding: 120px 0;
+    background: url('../img/testi-bg.png') center center no-repeat;
+    background-size: cover;
+    background-color: #f5fbfe;
+    .this-section-title {
+        margin-bottom: 82px;
+        h2 {
+            font-size: 45px;
+            line-height: 55px;
+            font-weight: 800;
+            color: #222222;
+        }
+        p {
+            font-size: 18px;
+            line-height: 30px;
+            font-weight: 500;
+            margin: 0;
+            color: #72839a;
+        }
+    }
+    .testimonial-slider {
+        .owl-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 70px;
+            .owl-dot {
+                width: 50px;
+                height: 5px;
+                border-radius: 50px;
+                background: #c0d2eb;
+                display: inline-block;
+                margin: 0 5px;
+                @include transition($transition);
+                &.active {
+                    background: $base-color;
+                }
+            }
+        }
+    }
+    .single-testimonial {
+        background: $white;
+        border: 1px solid #e2eefb;
+        border-radius: 5px;
+        padding: 60px 50px;
+        .part-body {
+            .rate {
+                margin-bottom: 18px;
+                ul {
+                    li {
+                        display: inline-block;
+                        color: #ffae01;
+                        font-size: 14px;
+                    }
+                }
+            }
+            p {
+                color: #72839a;
+                font-weight: 500;
+                line-height: 28px;
+                margin-bottom: 24px;
+            }
+        }
+        .part-user {
+            display: flow-root;
+            .part-img {
+                float: left;
+                width: 65px;
+                margin-right: 20px;
+                img {
+                    width: 100%;
+                }
+            }
+            .part-info {
+                display: flex;
+                flex-direction: column;
+                height: 65px;
+                justify-content: center;
+                span {
+                    display: block;
+                    &.name {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: #222;
+                        margin-bottom: 2px;
+                    }
+                    &.position {
+                        color: #72839a;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// for index-3
+.testimonial-3 {
+    padding: 120px 0;
+    background: url('../img/testi-3-bg.png') center center no-repeat;
+    background-size: cover;
+    background-color: #222;
+    .section-title-2 {
+        h2 {
+            color: $white;
+        }
+        p {
+            color: #a7a7a7;
+        }
+    }
+    .testimonial-3-slide {
+        .owl-dots {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            right: 50px;
+            .owl-dot {
+                height: 6px;
+                background: #c0d2eb;
+                width: 50px;
+                border-radius: 50px;
+                display: inline-block;
+                margin-right: 10px;
+                @include transition($transition);
+                &:last-child {
+                    margin-right: 0;
+                }
+                &.active {
+                    background: $base-color;
+                }
+            }
+        }
+        .part-img {
+            border-radius: 5px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .part-text {
+            padding-right: 50px;
+            .text-body {
+                .rate {
+                    margin: -3px 0 36px;
+                    ul {
+                        li {
+                            display: inline-block;
+                            color: #99a2ae;
+                            &.rated {
+                                color: #ffae01;
+                            }
+                        }
+                    }
+                }
+                p {
+                    color: #99a2ae;
+                    font-weight: 500;
+                    line-height: 34px;
+                    font-size: 20px;
+                }
+            }
+            .user-data {
+                margin-top: 34px;
+                span {
+                    display: block;
+                    &.name {
+                        color: $white;
+                        font-size: 20px;
+                        font-weight: 500;
+                        line-height: 28px;
+                        margin-bottom: 8px;
+                    }
+                    &.position {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #99a2ae;
+                    }
+                }
+            }
+        }
+    }
+}

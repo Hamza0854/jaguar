@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Register - Jaguar Web Studios</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-theme31.css">
+    <link rel="icon" href="images/favicon.png">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .form-body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+        
+        .website-logo {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        .website-logo img {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .website-logo a {
+            display: inline-block;
+        }
+        
+        .iofrm-layout {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .img-holder {
+            display: none;
+        }
+        
+        .form-holder {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        
+        .form-content {
+            padding: 25px 20px 40px 20px;
+        }
+        
+        .form-items h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .form-items p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .form-items p a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            height: 50px;
+            font-size: 16px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        
+        .password-container {
+            position: relative;
+            margin-bottom: 12px;
+        }
+        
+        .password-container .form-control {
+            margin-bottom: 0;
+            padding-right: 45px;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 8px;
+            font-size: 18px;
+        }
+        
+        .row {
+            margin: 0 -6px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .row > div {
+            padding: 0 6px;
+            width: 100%;
+        }
+        
+        .col-12 { width: 100%; }
+        .col-sm-6 { width: 100%; }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        
+        .checkbox-label {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .checkbox-label a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .ibtn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .ibtn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .ibtn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .social-with-title {
+            margin: 25px 0 0;
+            text-align: center;
+        }
+        
+        .social-with-title .text {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #999;
+            position: relative;
+        }
+        
+        .social-with-title .text::before,
+        .social-with-title .text::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background: #ddd;
+        }
+        
+        .social-with-title .text::before { left: 0; }
+        .social-with-title .text::after { right: 0; }
+        
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 15px;
+            min-height: 50px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .google-btn {
+            background: #4285f4;
+            color: white;
+        }
+        
+        .apple-btn {
+            background: #000;
+            color: white;
+        }
+        
+        .social-btn i,
+        .social-btn img {
+            margin-right: 10px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .redirect-notice {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1565c0;
+        }
+        
+        .countdown {
+            font-weight: bold;
+            color: #1976d2;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #loading-spinner::after {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 8px;
+        }
+        
+        @media (min-width: 768px) {
+            .form-body {
+                padding: 30px;
+            }
+            
+            .website-logo img {
+                max-width: 200px;
+            }
+            
+            .iofrm-layout {
+                flex-direction: row;
+                max-width: 1200px;
+                margin: 0 auto;
+                gap: 30px;
+            }
+            
+            .img-holder {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex: 1;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 50px 40px;
+                border-radius: 16px;
+                text-align: center;
+            }
+            
+            .img-holder h2 {
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+            
+            .img-holder h3 {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+                opacity: 0.95;
+            }
+            
+            .img-holder p {
+                font-size: 1.15rem;
+                line-height: 1.7;
+                opacity: 0.9;
+            }
+            
+            .form-holder {
+                flex: 1;
+                max-width: 550px;
+            }
+            
+            .form-content {
+                padding: 40px 35px;
+            }
+            
+            .col-sm-6 {
+                width: 50%;
+            }
+            
+            .social-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .social-btn {
+                flex: 0 0 auto;
+                min-width: 150px;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="../index.html">
+                <img src="images/logo.png" alt="Jaguar Web Studios">
+            </a>
+        </div>
+        
+        <div class="iofrm-layout">
+            <div class="img-holder">
+                <div class="info-holder">
+                    <h2>Jaguar Web Studios</h2>
+                    <h3><i>Domain for sale!</i></h3>
+                    <p>Fill the form, make your offer<br>And get the domain name before it's gone.</p>
+                </div>
+            </div>
+            
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        
+                        <div id="auth-section">
+                            <h3>Register Your Interest</h3>
+                            <p>Create an account to continue.<br>Already have an account? <a href="login.html">Login Here</a></p>
+                            
+                            <div id="auth-message" class="alert" style="display: none;"></div>
+                            
+                            <form id="registration-form">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="password-container">
+                                            <input type="password" id="password" class="form-control" placeholder="Password" required minlength="6">
+                                            <button type="button" class="password-toggle" data-target="password">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="password-container">
+                                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required minlength="6">
+                                            <button type="button" class="password-toggle" data-target="confirmPassword">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" id="city" class="form-control" placeholder="City" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" id="state" class="form-control" placeholder="State/Province" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" id="zipcode" class="form-control" placeholder="Zip/Postal Code" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" id="country" class="form-control" placeholder="Country" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="checkbox-wrapper">
+                                    <input type="checkbox" id="terms" required>
+                                    <label for="terms" class="checkbox-label">
+                                        I agree to the <a href="../terms-conditions.html" target="_blank">terms & conditions</a>
+                                    </label>
+                                </div>
+                                
+                                <button id="signup-btn" type="button" class="ibtn">
+                                    <span id="button-text">Create Account</span>
+                                    <span id="loading-spinner" style="display: none;">Processing</span>
+                                </button>
+                            </form>
+                            
+                            <div class="social-with-title">
+                                <div class="text">Or register with</div>
+                                <div class="social-buttons">
+                                    <button type="button" id="google-signin" class="social-btn google-btn">
+                                        <i class="fab fa-google"></i> Google
+                                    </button>
+                                    <button type="button" id="apple-signin" class="social-btn apple-btn">
+                                        <img src="images/apple.png" height="20" alt="Apple"> Apple
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="success-section" style="display: none;">
+                            <h3>Registration Successful!</h3>
+                            
+                            <div id="redirect-notice" class="redirect-notice">
+                                <p>Redirecting to your profile in <span id="countdown" class="countdown">3</span> seconds...</p>
+                            </div>
+                            
+                            <div class="alert alert-success">
+                                <p><strong>Welcome!</strong></p>
+                                <p>Your account has been created successfully.</p>
+                            </div>
+                            
+                            <a href="profile.html" class="ibtn">Go to Profile Now</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+const firebaseConfig = {
+    apiKey: "AIzaSyAKmAHeSqw6hX3Bvdi2cbGwCvprroObTK4",
+    authDomain: "jaguarwebsolutions-42b13.firebaseapp.com",
+    projectId: "jaguarwebsolutions-42b13",
+    storageBucket: "jaguarwebsolutions-42b13.firebasestorage.app",
+    messagingSenderId: "307062943289",
+    appId: "1:307062943289:web:f314717ffaa37ce7f8e7e8",
+    measurementId: "G-938MEPBEW8"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+function showMessage(message, isError = false) {
+    const messageDiv = document.getElementById('auth-message');
+    messageDiv.textContent = message;
+    messageDiv.className = isError ? 'alert alert-danger' : 'alert alert-success';
+    messageDiv.style.display = 'block';
+    setTimeout(() => { messageDiv.style.display = 'none'; }, 5000);
+}
+
+function setLoading(isLoading) {
+    const btn = document.getElementById('signup-btn');
+    const btnText = document.getElementById('button-text');
+    const spinner = document.getElementById('loading-spinner');
+    btn.disabled = isLoading;
+    btnText.style.display = isLoading ? 'none' : 'inline';
+    spinner.style.display = isLoading ? 'inline' : 'none';
+}
+
+document.querySelectorAll('.password-toggle').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+        const icon = this.querySelector('i');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+});
+
+async function saveUserToFirestore(userId, userData) {
+    await db.collection('users').doc(userId).set({
+        ...userData,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+}
+
+function showSuccessScreen() {
+    document.getElementById('auth-section').style.display = 'none';
+    document.getElementById('success-section').style.display = 'block';
+    setTimeout(() => { window.location.href = '../dash/profile.html'; }, 3000);
+}
+
+document.getElementById('signup-btn').addEventListener('click', async () => {
+    const email = document.getElementById('email')?.value.trim() || '';
+    const password = document.getElementById('password')?.value || '';
+    const confirmPassword = document.getElementById('confirmPassword')?.value || '';
+    const firstName = document.getElementById('firstName')?.value.trim() || '';
+    const lastName = document.getElementById('lastName')?.value.trim() || '';
+    const phone = document.getElementById('phone')?.value.trim() || '';
+    const city = document.getElementById('city')?.value.trim() || '';
+    const state = document.getElementById('state')?.value.trim() || '';
+    const zipcode = document.getElementById('zipcode')?.value.trim() || '';
+    const country = document.getElementById('country')?.value.trim() || '';
+    const terms = document.getElementById('terms')?.checked || false;
+    
+    if (!firstName || !lastName || !email || !phone || !city || !state || !zipcode || !country) {
+        showMessage('Please fill in all fields.', true);
+        return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showMessage('Please enter a valid email address.', true);
+        return;
+    }
+    
+    if (password.length < 6) {
+        showMessage('Password must be at least 6 characters.', true);
+        return;
+    }
+    
+    if (password !== confirmPassword) {
+        showMessage('Passwords do not match.', true);
+        return;
+    }
+    
+    if (!terms) {
+        showMessage('Please agree to the terms and conditions.', true);
+        return;
+    }
+    
+    setLoading(true);
+    
+    try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+        
+        const userData = {
+            uid: user.uid,
+            email: email,
+            firstName: firstName,
+            lastName: lastName,
+            displayName: `${firstName} ${lastName}`,
+            phone: phone,
+            city: city,
+            state: state,
+            zipcode: zipcode,
+            country: country,
+            provider: 'email',
+            status: 'active'
+        };
+        
+        await saveUserToFirestore(user.uid, userData);
+        showMessage('Registration successful!');
+        showSuccessScreen();
+        
+    } catch (error) {
+        let errorMessage = 'Registration failed: ';
+        switch (error.code) {
+            case 'auth/email-already-in-use':
+                errorMessage += 'This email is already registered.';
+                break;
+            case 'auth/invalid-email':
+                errorMessage += 'Invalid email address.';
+                break;
+            case 'auth/weak-password':
+                errorMessage += 'Password is too weak.';
+                break;
+            default:
+                errorMessage += error.message;
+        }
+        showMessage(errorMessage, true);
+    } finally {
+        setLoading(false);
+    }
+});
+
+async function handleRedirectResult() {
+    try {
+        const result = await auth.getRedirectResult();
+        if (result.user) {
+            const user = result.user;
+            
+            let firstName = '';
+            let lastName = '';
+            if (user.displayName) {
+                const nameParts = user.displayName.split(' ');
+                firstName = nameParts[0] || '';
+                lastName = nameParts.slice(1).join(' ') || '';
+            }
+            
+            const userData = {
+                uid: user.uid,
+                email: user.email || '',
+                firstName: firstName,
+                lastName: lastName,
+                displayName: user.displayName || '',
+                photoURL: user.photoURL || '',
+                provider: result.credential?.providerId || 'unknown',
+                status: 'active'
+            };
+            
+            await saveUserToFirestore(user.uid, userData);
+            showMessage('Sign-in successful! Redirecting...');
+            
+            setTimeout(() => {
+                window.location.href = '../dash/profile.html';
+            }, 1000);
+        }
+    } catch (error) {
+        if (error.code !== 'auth/no-redirect-result') {
+            showMessage('Sign-in error: ' + error.message, true);
+        }
+    }
+}
+
+function handleGoogleSignIn(e) {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
+    auth.signInWithRedirect(provider).catch(error => {
+        showMessage('Google Sign-In failed: ' + error.message, true);
+    });
+}
+
+function handleAppleSignIn(e) {
+    e.preventDefault();
+    const provider = new firebase.auth.OAuthProvider('apple.com');
+    provider.addScope('email');
+    provider.addScope('name');
+    auth.signInWithRedirect(provider).catch(error => {
+        showMessage('Apple Sign-In failed: ' + error.message, true);
+    });
+}
+
+// Example: handle the redirect result after Google Sign-In
+function handleRedirectResult() {
+    firebase.auth().getRedirectResult()
+        .then((result) => {
+            if (result.user) {
+                // User signed in successfully
+                console.log("Signed in user:", result.user);
+
+                // Redirect to your desired page
+                window.location.href = "../dash/index.html"; // change to your page
+            }
+        })
+        .catch((error) => {
+            console.error("Sign-in error:", error);
+        });
+}
+
+// Example: when Google Sign-In button clicked
+function handleGoogleSignIn() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider);
+}
+
+</script>
+</body>
+</html>

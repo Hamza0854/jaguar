@@ -1,0 +1,28 @@
+/*==========================================
+    choosing reason
+===========================================*/
+.choosing-reason-about-page {
+    background: #f6fcff;
+    padding: 30px 30px 0;
+    border: 1px solid #e8f3fd;
+    border-radius: 5px;
+    .single-reason {
+        background: $white;
+        border: 1px solid #d0e5fb;
+        padding: 40px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        h3 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 25px;
+        }
+        p {
+            font-weight: 500;
+            line-height: 28px;
+            color: #72839a;
+            margin: 0;
+        }
+    }
+}

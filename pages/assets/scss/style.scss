@@ -1,0 +1,47 @@
+/* =================================
+ css index
+ =================================
+    
+*/
+
+//= Main scss
+@import "main/_variables";
+@import "main/_mixins";
+@import "main/_global";
+@import "main/_normalize";
+@import "main/_animation";
+
+
+//=Section scss
+@import "sections/_header";
+@import "sections/_banner";
+@import "sections/_about";
+@import "sections/_choosing-reason";
+@import "sections/_statics";
+@import "sections/_service";
+@import "sections/_video";
+@import "sections/_project";
+@import "sections/_team";
+@import "sections/_support";
+@import "sections/_blog";
+@import "sections/_footer";
+@import "sections/_copyright";
+@import "sections/_overview";
+@import "sections/_case";
+@import "sections/_testimonial";
+@import "sections/_news-letter";
+@import "sections/_price";
+
+//=Pages scss
+@import "pages/_breadcrumb";
+@import "pages/_about";
+@import "pages/_choosing-reason";
+@import "pages/_service";
+@import "pages/_sidebar";
+@import "pages/_case";
+@import "pages/_team";
+@import "pages/_testimonial";
+@import "pages/_blog";
+@import "pages/_faq";
+@import "pages/_contact";
+  

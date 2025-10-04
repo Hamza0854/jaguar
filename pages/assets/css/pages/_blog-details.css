@@ -1,0 +1,13 @@
+/*==========================================
+    blog details
+===========================================*/
+.blog-details {
+  padding: 120px 0; }
+  .blog-details .blog-details-area .part-meta ul li {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 20px;
+    display: inline-block; }
+    .blog-details .blog-details-area .part-meta ul li.icon {
+      margin-right: 6px; }

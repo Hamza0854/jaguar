@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ03L9K3ME"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SZ03L9K3ME');
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jaguar Web Studios</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-theme40.css">
+    <link rel="icon" href="images/favicon.png">
+    
+    <!-- Apple Sign-In Script -->
+    <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+    
+    <!-- Mobile-Responsive Styles -->
+    <style>
+        /* Mobile-first responsive styles */
+        .form-body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .iofrm-layout {
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .form-holder {
+            width: 100%;
+        }
+        
+        .form-content {
+            padding: 20px;
+        }
+        
+        .form-items {
+            width: 100%;
+        }
+        
+        /* Logo adjustments */
+        .website-logo-inside img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px;
+        }
+        
+        /* Form styling */
+        .form-control {
+            min-height: 44px; /* Touch-friendly minimum size */
+            font-size: 16px; /* Prevents zoom on iOS */
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        /* Button styling */
+        .btn {
+            min-height: 44px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .form-button {
+            margin: 20px 0;
+        }
+        
+        .form-button .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        /* Social login buttons */
+        .social-with-title {
+            margin: 30px 0;
+        }
+        
+        .social-with-title .text {
+            text-align: center;
+            margin: 20px 0 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .social-with-title a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 12px;
+            text-align: center;
+            min-height: 44px;
+            line-height: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .social-with-title a:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Apple button styling */
+        .apple-signin-btn {
+            background-color: #000;
+            color: white;
+            border: 1px solid #000;
+        }
+        
+        .apple-signin-btn:hover {
+            background-color: #333;
+            color: white;
+        }
+        
+        /* Google button styling */
+        .google-signin-btn {
+            background-color: #4285f4;
+            color: white;
+            border: 1px solid #4285f4;
+        }
+        
+        .google-signin-btn:hover {
+            background-color: #357ae8;
+        }
+        
+        /* Alert messages */
+        .alert {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        /* User section styling */
+        .user-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .user-info p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        /* Page links */
+        .page-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .page-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .page-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Tablet and desktop adjustments */
+        @media (min-width: 768px) {
+            .form-body {
+                padding: 40px;
+            }
+            
+            .form-content {
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            
+            .form-button .btn {
+                width: auto;
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
+            
+            .social-with-title a {
+                display: inline-block;
+                width: auto;
+                margin-right: 10px;
+                margin-bottom: 0;
+                min-width: 120px;
+            }
+        }
+        
+        /* Loading state */
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Icon spacing */
+        .social-with-title a i,
+        .social-with-title a img {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        /* Fix for iOS Safari */
+        @supports (-webkit-touch-callout: none) {
+            .form-control:focus {
+                font-size: 16px;
+            }
+        }
+        
+        /* Title styling */
+        h3.font-md {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* Description text */
+        .form-items > p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-body without-side">
+        <div class="iofrm-layout">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside logo-normal">
+                            <a href="../index.html">
+                                <div class="">
+                                    <img src="images/logo.png" alt="Jaguar Web Studios Logo">
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Auth Section (Login/Signup forms) -->
+                        <div id="auth-section">
+                            <h3 class="font-md">Login to account</h3>
+                            <p>Access to the most powerful tool in the entire design and web industry.</p>
+                            
+                            <!-- Auth Message -->
+                            <div id="auth-message" class="alert" style="display: none;"></div>
+                            
+                            <form id="login-form">
+                                <input class="form-control" type="email" id="email-input" name="username" placeholder="E-mail Address" required>
+                                <div class="form-button">
+                                    <button id="signin-btn" type="button" class="btn btn-primary">
+                                        <span id="signin-text">Continue with Email</span>
+                                        <span id="signin-spinner" style="display: none;">Processing...</span>
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="other-links social-with-title">
+                                <div class="text">Or continue with</div>
+                                <a href="#" id="google-signin-btn" class="google-signin-btn">
+                                    <i class="fab fa-google"></i>Google
+                                </a>
+                                <a href="#" id="apple-signin-btn" class="apple-signin-btn">
+                                    <img src="images/apple.png" height="18px" alt="Apple"> Apple
+                                </a>
+                            </div>
+                            
+                            <div class="page-links">
+                                <a href="register.html">Register new account</a>
+                            </div>
+                        </div>
+                        
+                        <!-- User Section (Shown when logged in) -->
+                        <div id="user-section" style="display: none;">
+                            <h3 class="font-md">Welcome!</h3>
+                            <div class="user-info">
+                                <p><strong>Name:</strong> <span id="user-display-name"></span></p>
+                                <p><strong>Email:</strong> <span id="user-display-email"></span></p>
+                                <p class="text-success">Successfully logged in!</p>
+                            </div>
+                            <div class="form-button">
+                                <a href="../dash/index.html" class="btn btn-success">
+                                    <i class="fa fa-user"></i> Go to Dashboard
+                                </a>
+                                <a href="../index.html" class="btn btn-primary">Go to Homepage</a>
+                                <button id="signout-btn" type="button" class="btn btn-danger">Sign Out</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Firebase v8 Scripts -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script>
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKmAHeSqw6hX3Bvdi2cbGwCvprroObTK4",
+    authDomain: "jaguarwebsolutions-42b13.firebaseapp.com",
+    projectId: "jaguarwebsolutions-42b13",
+    storageBucket: "jaguarwebsolutions-42b13.firebasestorage.app",
+    messagingSenderId: "307062943289",
+    appId: "1:307062943289:web:f314717ffaa37ce7f8e7f8",
+    measurementId: "G-938MEPBEW8"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  console.log("Firebase Authentication initialized:", auth);
+
+  // Helper function to show messages
+  function showAuthMessage(message, isError = false) {
+    const authMessage = document.getElementById('auth-message');
+    authMessage.textContent = message;
+    authMessage.className = isError ? 'alert alert-danger' : 'alert alert-success';
+    authMessage.style.display = 'block';
+    
+    // Hide after 5 seconds
+    setTimeout(() => {
+      authMessage.style.display = 'none';
+    }, 5000);
+  }
+
+  // Toggle loading state for buttons
+  function setButtonLoading(buttonId, isLoading) {
+    const button = document.getElementById(buttonId);
+    const textSpan = document.getElementById(buttonId.replace('-btn', '-text'));
+    const spinnerSpan = document.getElementById(buttonId.replace('-btn', '-spinner'));
+    
+    if (button && textSpan && spinnerSpan) {
+      button.disabled = isLoading;
+      textSpan.style.display = isLoading ? 'none' : 'inline';
+      spinnerSpan.style.display = isLoading ? 'inline' : 'none';
+    }
+  }
+
+  // Auto-redirect to dashboard after successful login (optional)
+  function autoRedirectToDashboard(delay = 3000) {
+    setTimeout(() => {
+      const userSection = document.getElementById('user-section');
+      if (userSection && userSection.style.display !== 'none') {
+        // Show a countdown message
+        showAuthMessage('Redirecting to dashboard in 3 seconds...');
+        setTimeout(() => {
+          window.location.href = '../dash/index.html';
+        }, 3000);
+      }
+    }, delay);
+  }
+
+  // Get references to HTML elements
+  const emailInput = document.getElementById('email-input');
+  const signinBtn = document.getElementById('signin-btn');
+  const googleSigninBtn = document.getElementById('google-signin-btn');
+  const appleSigninBtn = document.getElementById('apple-signin-btn');
+  const authMessage = document.getElementById('auth-message');
+  const authSection = document.getElementById('auth-section');
+  const userSection = document.getElementById('user-section');
+  const userDisplayName = document.getElementById('user-display-name');
+  const userDisplayEmail = document.getElementById('user-display-email');
+  const signoutBtn = document.getElementById('signout-btn');
+
+  // Email Magic Link / Passwordless Sign In
+  signinBtn.addEventListener('click', () => {
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      showAuthMessage('Please enter your email address.', true);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showAuthMessage('Please enter a valid email address.', true);
+      return;
+    }
+
+    setButtonLoading('signin-btn', true);
+
+    // Send sign-in link to user's email
+    const actionCodeSettings = {
+      url: window.location.href, // URL to redirect back to
+      handleCodeInApp: true
+    };
+
+    auth.sendSignInLinkToEmail(email, actionCodeSettings)
+      .then(() => {
+        // Save the email locally so you don't need to ask the user for it again
+        window.localStorage.setItem('emailForSignIn', email);
+        showAuthMessage(`A sign-in link has been sent to ${email}. Please check your email.`);
+        console.log('Sign-in link sent successfully');
+      })
+      .catch((error) => {
+        let errorMessage = 'Error sending sign-in link: ';
+        switch (error.code) {
+          case 'auth/invalid-email':
+            errorMessage += 'Please enter a valid email address.';
+            break;
+          case 'auth/user-disabled':
+            errorMessage += 'This account has been disabled.';
+            break;
+          default:
+            errorMessage += error.message;
+        }
+        showAuthMessage(errorMessage, true);
+        console.error('Email sign-in error:', error);
+      })
+      .finally(() => {
+        setButtonLoading('signin-btn', false);
+      });
+  });
+
+  // Check if user is signing in with email link
+  if (auth.isSignInWithEmailLink(window.location.href)) {
+    let email = window.localStorage.getItem('emailForSignIn');
+    if (!email) {
+      // User opened the link on a different device. Ask for email.
+      email = window.prompt('Please provide your email for confirmation');
+    }
+
+    if (email) {
+      auth.signInWithEmailLink(email, window.location.href)
+        .then((result) => {
+          // Clear email from storage.
+          window.localStorage.removeItem('emailForSignIn');
+          console.log('Email link sign-in successful:', result.user);
+          showAuthMessage(`Welcome, ${result.user.email}!`);
+        })
+        .catch((error) => {
+          console.error('Email link sign-in error:', error);
+          showAuthMessage(`Sign-in error: ${error.message}`, true);
+        });
+    }
+  }
+
+  // Google Sign In
+  googleSigninBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        console.log('Google Sign-in successful:', result.user);
+        showAuthMessage(`Welcome, ${result.user.displayName || result.user.email}!`);
+        // Optional: Auto-redirect after successful login
+        // autoRedirectToDashboard();
+      })
+      .catch((error) => {
+        let errorMessage = 'Google Sign In Error: ';
+        switch (error.code) {
+          case 'auth/popup-closed-by-user':
+            errorMessage += 'Login cancelled.';
+            break;
+          case 'auth/popup-blocked':
+            errorMessage += 'Popup blocked. Please allow popups.';
+            break;
+          default:
+            errorMessage += error.message;
+        }
+        showAuthMessage(errorMessage, true);
+        console.error('Google Sign In Error:', error);
+      });
+  });
+
+  // Apple Sign In
+  appleSigninBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Check if Apple Sign-In is available
+    if (typeof AppleID === 'undefined') {
+      showAuthMessage('Apple Sign-In is not available. Please use email or Google login.', true);
+      return;
+    }
+
+    try {
+      const provider = new firebase.auth.OAuthProvider('apple.com');
+      
+      // Optional: Add scopes
+      provider.addScope('email');
+      provider.addScope('name');
+      
+      // Sign in with popup
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          console.log('Apple Sign-in successful:', result.user);
+          showAuthMessage(`Welcome, ${result.user.displayName || result.user.email}!`);
+          // Optional: Auto-redirect after successful login
+          // autoRedirectToDashboard();
+        })
+        .catch((error) => {
+          let errorMessage = 'Apple Sign In Error: ';
+          switch (error.code) {
+            case 'auth/popup-closed-by-user':
+              errorMessage += 'Login cancelled.';
+              break;
+            case 'auth/popup-blocked':
+              errorMessage += 'Popup blocked. Please allow popups.';
+              break;
+            case 'auth/operation-not-supported-in-this-environment':
+              errorMessage += 'Apple Sign-In is not supported in this environment. Please try on a device that supports it.';
+              break;
+            default:
+              errorMessage += error.message;
+          }
+          showAuthMessage(errorMessage, true);
+          console.error('Apple Sign In Error:', error);
+        });
+    } catch (error) {
+      showAuthMessage('Apple Sign-In is not properly configured. Please contact support.', true);
+      console.error('Apple Sign-In setup error:', error);
+    }
+  });
+
+  // User Sign Out
+  signoutBtn.addEventListener('click', () => {
+    auth.signOut()
+      .then(() => {
+        console.log('User signed out.');
+        showAuthMessage('You have been signed out.');
+      })
+      .catch((error) => {
+        showAuthMessage(`Sign Out Error: ${error.message}`, true);
+        console.error('Sign Out Error:', error);
+      });
+  });
+
+  // Listen for Auth State Changes
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in
+      authSection.style.display = 'none';
+      userSection.style.display = 'block';
+      userDisplayName.textContent = user.displayName || user.email || 'User';
+      userDisplayEmail.textContent = user.email || 'No email provided';
+      console.log('Current User (onAuthStateChanged):', user);
+    } else {
+      // User is signed out
+      authSection.style.display = 'block';
+      userSection.style.display = 'none';
+      console.log('No user is signed in.');
+      
+      // Clear form
+      if (emailInput) emailInput.value = '';
+    }
+  });
+
+  // Auto-focus on email input when page loads
+  window.addEventListener('load', () => {
+    if (emailInput) {
+      emailInput.focus();
+    }
+  });
+
+  // Handle keyboard events (Enter key)
+  document.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      if (emailInput === document.activeElement) {
+        signinBtn.click();
+      }
+    }
+  });
+
+</script>
+</body>
+</html>

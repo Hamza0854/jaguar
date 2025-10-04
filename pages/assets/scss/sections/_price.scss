@@ -1,0 +1,103 @@
+/*==========================================
+    price
+===========================================*/
+.price-section {
+    padding: 120px 0;
+    .single-price {
+        box-shadow: 0px 0px 24px 0px rgba(34, 34, 34, 0.1);
+        border-radius: 15px;
+        border: 2px solid transparent;
+        @include transition($transition);
+        &:hover, &.active {
+            border-color: $base-color;
+            .part-head {
+                background-color: $base-color;
+                border-color: transparent;
+                &:after {
+                    opacity: .20;
+                }
+                span.title, span.price {
+                    color: $white;
+                }
+                span.price small {
+                    color: $white;
+                }
+            }
+            .part-body {
+                a {
+                    background: $base-color;
+                    color: $white;
+                }
+            }
+        }
+        .part-head {
+            position: relative;
+            z-index: 2;
+            padding: 47px 0 34px;
+            border: 1px solid #e9f1fb;
+            border-radius: 10px;
+            text-align: center;
+            background-color: $white;
+            @include transition($transition);
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: url('../img/single-price-bg.png') center center no-repeat;
+                background-size: cover;
+                z-index: -1;
+                opacity: .13;
+                @include transition($transition);
+            }
+            span {
+                display: block;
+                &.title {
+                    font-size: 25px;
+                    font-weight: 800;
+                    color: #222222;
+                    margin-bottom: 15px;
+                    @include transition($transition);
+                }
+                &.price {
+                    font-size: 55px;
+                    font-weight: 800;
+                    color: #222222;
+                    @include transition($transition);
+                    small {
+                        font-size: 17px;
+                        color: #677a93;
+                        font-weight: 500;
+                        @include transition($transition);
+                    }
+                }
+            }
+        }
+        .part-body {
+            padding-bottom: 55px;
+            text-align: center;
+            ul {
+                padding: 37px 0 35px;
+                li {
+                    color: #72839a;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 40px;
+                }
+            }
+            a {
+                display: inline-block;
+                height: 60px;
+                border: 2px solid $base-color;
+                line-height: 56px;
+                border-radius: 5px;
+                color: #222;
+                font-weight: 600;
+                padding: 0 35px;
+                @include transition($transition);
+            }
+        }
+    }
+}

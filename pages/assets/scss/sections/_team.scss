@@ -1,0 +1,547 @@
+/*==========================================
+    team
+===========================================*/
+
+// for index-1
+.team {
+    padding: 120px 0;
+    .all-member {
+        position: relative;
+        .single-member {
+            &:hover {
+                .part-text {
+                    &:after {
+                        opacity: 1;
+                    }
+                    .data-info {
+                        span {
+                            &.name, &.position {
+                                color: $white;
+                            }
+                        }
+                    }
+                    .play-button {
+                        a {
+                            color: #222;
+                            &:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+            .part-img {
+                border: 3px solid #e9f0fb;
+                border-bottom-color: transparent;
+                img {
+                    width: 100%;
+                }
+            }
+            .part-text {
+                background: #e9f0fb;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 25px;
+                position: relative;
+                z-index: 2;
+                &:after {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $bg-color;
+                    z-index: -1;
+                    opacity: 0;
+                    @include transition($transition);
+                }
+                .data-info {
+                    span {
+                        display: block;
+                        &.name {
+                            font-size: 26px;
+                            font-weight: 700;
+                            text-transform: capitalize;
+                            color: #222222;
+                            margin-bottom: 4px;
+                            @include transition($transition);
+                        }
+                        &.position {
+                            color: #8c95a2;
+                            font-size: 16px;
+                            font-weight: 500;
+                            @include transition($transition);
+                        }
+                    }
+                }
+                .play-button {
+                    a {
+                        display: inline-block;
+                        width: 70px;
+                        height: 70px;
+                        text-align: center;
+                        line-height: 70px;
+                        border-radius: 50%;
+                        background: $bg-color;
+                        color: $white;
+                        position: relative;
+                        z-index: 2;
+                        @include transition($transition);
+                        &:after {
+                            position: absolute;
+                            content: '';
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            z-index: -1;
+                            border-radius: 50%;
+                            @include transition($transition);
+                            opacity: 0;
+                            background: $white;
+                        }
+                    }
+                }
+            }
+        }
+        .shape {
+            width: 380px;
+            img {
+                width: 380px;
+            }
+            &.top-shape {
+                position: absolute;
+                top: -60px;
+                right: -130px; 
+                z-index: -1;
+            }
+            &.bottom-shape {
+                position: absolute;
+                bottom: -60px;
+                left: -130px;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+// for index-2
+.team-2 {
+    padding: 120px 0 90px;
+    background: $bg-color;
+    .team-members {
+        position: relative;
+        .shape-1,  .shape-2, .shape-3, .shape-4 {
+            width: 180px;
+            position: absolute;
+            top: -70px;
+            left: -70px;
+            opacity: .8;
+            img {
+                width: 100%;
+            }
+        }
+        .shape-2 {
+            left: auto;
+            right: -70px;
+        }
+        .shape-3 {
+            top: auto;
+            bottom: -70px;
+        }
+        .shape-4 {
+            top: auto;
+            bottom: -70px;
+            left: auto;
+            right: -70px;
+        }
+        .single-member {
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
+            @include transition($transition);
+            margin-bottom: 30px;
+            &:hover {
+                border-radius: 0;
+                .member-details {
+                    bottom: 15px;
+                }
+            }
+            img {
+                width: 100%;
+            }
+            .member-details {
+                background: $white;
+                height: auto;
+                bottom: 100%;
+                left: 15px;
+                right: 15px;
+                position: absolute;
+                padding: 9px 15px 12px;
+                text-align: center;
+                @include transition(all 0.8s cubic-bezier(1, -0.01, 0, 1.03));
+                span {
+                    display: block;
+                    &.name {
+                        font-size: 21px;
+                        font-weight: 700;
+                        color: #222;
+                    }
+                    &.position {
+                        color: #8c95a2;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+            }
+            &.add-single-member {
+                .inner-content {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    a.join-button {
+                        display: inline-block;
+                        width: 60px;
+                        height: 60px;
+                        text-align: center;
+                        line-height: 60px;
+                        background: $bg-color;
+                        color: $white;
+                        border-radius: 50%;
+                        position: relative;
+                        z-index: 2;
+                        overflow: hidden;
+                        margin-bottom: 14px;
+                        &:after {
+                            position: absolute;
+                            content: '';
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: $bg-color-reverse;
+                            z-index: -1;
+                            @include transition($transition);
+                            opacity: 0;
+                        }
+                        &:hover {
+                            &:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    span.title {
+                        color: #72839a;
+                        font-size: 16px;
+                        font-weight: 500;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// for index-3
+.team-3 {
+    padding: 120px 0;
+    background: url('../img/team-3-bg.png') center center no-repeat;
+    background-size: cover;
+    .single-team {
+        position: relative;
+        text-align: center;
+        z-index: 2;
+        margin-bottom: 30px;
+        &:after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../img/single-team-bg.png') center bottom no-repeat;
+            background-size: 100%;
+            z-index: -1;
+            @include transition($transition);
+        }
+
+        // hover effect
+        &:hover {
+            &:after {
+                background: url('../img/single-team-bg-2.png') center bottom no-repeat;
+                background-size: 100%;
+            }
+            .part-img {
+                &:before {
+                    opacity: 1;
+                    left: -4px;
+                    top: -4px;
+                    right: -4px;
+                    bottom: -4px;
+                }
+                &:after {
+                    z-index: -6;
+                }
+            }
+            .part-data {
+                span.name {
+                    color: #222;
+                }
+                span.position {
+                    color: #898989;
+                }
+            }
+            a.view-member-button {
+                color: $white;
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .part-img {
+            position: relative;
+            z-index: 2;
+            &:after {
+                position: absolute;
+                content: '';
+                left: -6px;
+                top: -6px;
+                right: -6px;
+                bottom: -6px;
+                background: white;
+                z-index: -6;
+                border-radius: 50%;
+                @include transition($transition);
+            }
+            &:before {
+                background: $bg-color;
+                position: absolute;
+                content: '';
+                left: 0px;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: -5;
+                border-radius: 50%;
+                opacity: 0;
+                @include transition($transition);
+            }
+            img {
+                width: 100%;
+                border-radius: 50%;
+                padding: 2px;
+            }
+        }
+        .part-data {
+            padding: 25px 0 0;
+            span {
+                display: block;
+                &.name {
+                    font-size: 23px;
+                    font-weight: 700;
+                    color: $white;
+                    text-transform: capitalize;
+                    @include transition($transition);
+                }
+                &.position {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #e0e9f5;
+                    margin-bottom: -5px;
+                    @include transition($transition);
+                }
+            }
+        }
+        a.view-member-button {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #aecef8;
+            display: inline-block;
+            line-height: 48px;
+            text-align: center;
+            border-radius: 50%;
+            background: $white;
+            position: relative;
+            bottom: -30px;
+            color: #222;
+            z-index: 2;
+            @include transition($transition);
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: $bg-color;
+                z-index: -1;
+                border-radius: 50%;
+                opacity: 0;
+                @include transition($transition);
+            }
+        }
+    }
+    .team-buttons {
+        margin-top: 70px;
+        text-align: center;
+        ul {
+            li {
+                a {
+                    display: inline-block;
+                    height: 70px;
+                    padding: 0 40px;
+                    border-radius: 5px;
+                    background: $base-color;
+                    color: $white;
+                    line-height: 68px;
+                    border: 1px solid $base-color;
+                    @include transition($transition);
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-right: 26px;
+                    &:hover {
+                        background: transparent;
+                        color: $base-color;
+                    }
+                    &:last-child {
+                        background: transparent;
+                        border-color: #d7dfe3;
+                        color: #878d95;
+                        margin-right: 0;
+                        &:hover {
+                            background: $base-color;
+                            color: $white;
+                            border-color: $base-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// for index-5
+.team-5 {
+    padding: 120px 0 90px;
+    .single-member {
+        text-align: center;
+        margin-bottom: 30px;
+        &:hover {
+            .part-img {
+                &:after {
+                    border-color: transparent;
+                }
+                .content-on-img {
+                    top: 0;
+                }
+            }
+        }
+        .part-img {
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            &:after {
+                position: absolute;
+                content: '';
+                left: -1px;
+                top: -1px;
+                right: -1px;
+                bottom: -1px;
+                border: 10px solid #eaf3ff;
+                border-radius: 50%;
+                @include transition($transition);
+            }
+            img {
+                width: 100%;
+            }
+            .content-on-img {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                z-index: 2;
+                @include transition($transition);
+                &:after {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: -webkit-linear-gradient( 21deg, rgb(0,92,234) 0%, rgb(0,197,251) 100%);
+                    opacity: .86;
+                    z-index: -1;
+                    border-radius: 50%;
+                }
+                span {
+                    display: block;
+                    &.name {
+                        font-size: 23px;
+                        font-weight: 700;
+                        color: $white;
+                        margin: -18px 0 5px;
+                    }
+                    &.position {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #e8ecf1;
+                    }
+                }
+                .social {
+                    margin-top: 18px;
+                    ul {
+                        li {
+                            display: inline-block;
+                            a {
+                                display: inline-block;
+                                font-size: 15px;
+                                width: 35px;
+                                height: 35px;
+                                text-align: center;
+                                line-height: 33px;
+                                border: 1px solid #b5d1f7;
+                                color: $white;
+                                margin-right: 6px;
+                                border-radius: 3px;
+                                @include transition($transition);
+                                &:hover {
+                                    background: $white;
+                                    color: $base-color;
+                                    border-color: $white;
+                                }
+                            }
+                            &:last-child {
+                                a {
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .team-bouttons {
+        text-align: center;
+        margin-top: 50px;
+        a {
+            margin-right: 26px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

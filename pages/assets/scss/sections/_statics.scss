@@ -1,0 +1,73 @@
+/*==========================================
+    statics
+===========================================*/
+
+// for index-1
+.statics {
+    padding: 100px 0;
+    .single-statics {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        .bg-icon {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 90px;
+            z-index: -1;
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+        span {
+            display: block;
+            &.number {
+                font-size: 55px;
+                color: #222222;
+                font-weight: 800;
+                margin-bottom: 13px;
+                margin-top: -20px;
+            }
+            &.title {
+                font-size: 16px;
+                font-weight: 500;
+                color: #72839a;
+            }
+        }
+    }
+}
+
+// for index-2
+.statics-2 {
+    background: #f6fcff;
+}
+
+// for index-5
+.statics-5 {
+    margin-bottom: 100px;
+    .single-statics {
+        position: relative;
+        z-index: 2;
+        &:after {
+            position: absolute;
+            content: '';
+            left: 50%;
+            top: 50%;
+            width: 260px;
+            height: 260px;
+            transform: translateX(-50%) translateY(-50%);
+            border: 3px solid #c0d4f0;
+            border-radius: 50%;
+            @include transition($transition);
+            margin-top: 10px;
+        }
+        &:hover {
+            &:after {
+                border-color: $base-color;
+            }
+        }
+    }
+}

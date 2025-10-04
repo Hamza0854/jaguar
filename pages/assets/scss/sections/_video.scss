@@ -1,0 +1,85 @@
+/*==========================================
+    video
+===========================================*/
+.video {
+    &.video-2 {
+        padding: 120px 0;
+        .part-text {
+            text-align: left;
+            padding-left: 30px;
+        }
+        .part-video {
+            &:after {
+                background: #222222;
+            }
+        }
+    }
+    padding: 0 0 120px;
+    .part-text {
+        text-align: right;
+        h2 {
+            font-size: 38px;
+            line-height: 46px;
+            font-weight: 700;
+            color: #222222;
+            margin-bottom: 23px;
+            span.special {
+                display: inline-block;
+                color: $base-color;
+                font-family: $playfair;
+                font-weight: 900;
+                font-style: italic;
+            }
+        }
+        p {
+            color: #72839a;
+            font-size: 16px;
+            line-height: 27px;
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+    .part-video {
+        position: relative;
+        z-index: 2;
+        border-radius: 5px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+        &:after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: $base-color;
+            opacity: .65;
+        }
+        .play-button {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: $white;
+            font-size: 15px;
+            color: $base-color;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            margin-left: -30px;
+            top: 50%;
+            margin-top: -30px;
+            z-index: 3;
+            @include transition($transition);
+            animation: scalation-1 3s infinite;
+            &:hover {
+                background: #222222;
+                color: $white;
+            }
+        }
+
+    }
+}

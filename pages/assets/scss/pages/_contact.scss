@@ -1,0 +1,153 @@
+/*==========================================
+    contact
+===========================================*/
+.contact {
+    padding: 120px 0 0;
+    .contact-address {
+        .single-address {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center; 
+            background: #f4f9ff;
+            padding: 40px;
+            border: 1px solid #e9f1fc;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: $bg-color;
+                z-index: -1;
+                border-radius: 10px;
+                opacity: 0;
+                @include transition($transition);
+            }
+            &:hover {
+                position: relative;
+                z-index: 4;
+                &:after {
+                    opacity: 1;
+                    transform: scale(1.06);
+                }
+                .part-icon {
+                    img {
+                        filter: brightness(100) invert(1);
+                    }
+                    span.title {
+                        color: $white;
+                    }
+                }
+                .part-text {
+                    p {
+                        color: $white;
+                    }
+                }
+            }
+            .part-icon {
+                position: relative;
+                text-align: center;
+                margin-right: 30px;
+                img {
+                    position: absolute;
+                    height: 80px;
+                    width: auto;
+                    opacity: .2;
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    @include transition($transition);
+                }
+                span {
+                    &.title {
+                        display: block;
+                        font-size: 45px;
+                        font-weight: 800;
+                        color: #222;
+                        line-height: 80px;
+                        position: relative;
+                        @include transition($transition);
+                    }
+                }
+            }
+            .part-text {
+                p {
+                    font-size: 21px;
+                    line-height: 35px;
+                    font-weight: 700;
+                    color: $base-color;
+                    margin: 0;
+                    @include transition($transition);
+                }
+            }
+        }
+    }
+    .contact-form {
+        background: #f4f9ff;
+        border: 1px solid #e9f1fc;
+        border-radius: 10px;
+        padding: 40px 30px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 13px 0px rgba(0, 0, 0, 0.15);
+        span.subtitle {
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            color: $base-color;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        h4 {
+            font-size: 35px;
+            line-height: 45px;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        form {
+            input {
+                height: 60px;
+                width: 100%;
+                padding: 0 30px;
+                background: #f8fbff;
+                border: 1px solid #d0def1;
+                border-radius: 6px;
+                margin-bottom: 20px;
+                font-weight: 500;
+                color: #767c89;
+                @include transition($transition);
+                &:focus {
+                    border-color: $base-color;
+                }
+            }
+            textarea {
+                height: 175px;
+                width: 100%;
+                padding: 19px 30px;
+                background: #f8fbff;
+                border: 1px solid #d0def1;
+                border-radius: 6px;
+                margin-bottom: 20px;
+                font-weight: 500;
+                color: #767c89;
+                @include transition($transition);
+                display: grid;
+                margin-bottom: 40px;
+                &:focus {
+                    border-color: $base-color;
+                }
+            }
+        }
+    }
+    #map {
+        height: 600px;
+        margin-top: -200px;
+    }
+}

@@ -1,0 +1,51 @@
+/*==========================================
+    copyright
+===========================================*/
+.copyright {
+    background: #1d1d1d;
+    padding: 15px 0;
+    &.copyright-4 {
+        background: $white;
+        .cp-area {
+            p {
+                color: #72839a;
+            }
+        }
+    }
+    .cp-area {
+        p {
+            font-size: 15px;
+            font-weight: 500;
+            color: #bdbdbd;
+            margin: 0;
+        }
+    }
+    .social-area {
+        float: right;
+        ul {
+            li {
+                display: inline-block;
+                a {
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    color: $white;
+                    font-size: 15px;
+                    margin-right: 11px;
+                    &.facebook {
+                        background: $facebook;
+                    }
+                    &.twitter {
+                        background: $twitter;
+                    }
+                    &.skype {
+                        background: $skype;
+                    }
+                }
+            }
+        }
+    }
+}

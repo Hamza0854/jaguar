@@ -1,0 +1,110 @@
+/*==========================================
+    about
+===========================================*/
+.about-page-about {
+    padding: 120px 0;
+    .part-text {
+        h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #222;
+            line-height: 52px;
+            margin-bottom: 22px;
+            margin-top: -8px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 28px;
+            color: #72839a;
+            font-weight: 500;
+        }
+    }
+    .part-img {
+        position: relative;
+        padding: 50px 50px 70px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: auto;
+            &.img-1 {
+                position: initial;
+                width: 100%;
+            }
+            &.img-3 {
+                top: auto;
+                bottom: 40px;
+                z-index: 2;
+            }
+            &.img-4 {
+                left: auto;
+                right: 0;
+                top: auto;
+                bottom: 0;
+            }
+        }
+        a.play-button {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background: $bg-color;
+            border-radius: 50%;
+            color: $white;
+            border: 2px solid $white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 2;
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: $bg-color-reverse;
+                border-radius: 50%;
+                z-index: -1;
+                opacity: 0;
+                @include transition($transition);
+            }
+            &:hover {
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.about-details {
+    padding: 120px 0;
+    .part-text {
+        h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #222;
+            line-height: 52px;
+            margin-bottom: 22px;
+            margin-top: 35px;
+            &.first-child {
+                margin-top: -8px;
+            }
+        }
+        p {
+            font-size: 16px;
+            line-height: 28px;
+            color: #72839a;
+            font-weight: 500;
+        }
+    }
+    .part-img {
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+}

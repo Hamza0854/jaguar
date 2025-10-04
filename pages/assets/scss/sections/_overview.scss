@@ -1,0 +1,105 @@
+/*==========================================
+    overview
+===========================================*/
+.overview {
+    padding: 120px 0;
+    position: relative;
+    z-index: 3;
+    .part-img {
+        position: relative;
+        margin-right: -30px;
+        .shape-1 {
+            position: relative;
+            width: 260px;
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            z-index: -1;
+            animation: scalation-1 3s infinite;
+            img {
+                width: 100%;
+            }
+        }
+        .shape-2 {
+            position: absolute;
+            width: 280px;
+            bottom: -120px;
+            right: -70px;
+            z-index: -1;
+            animation: replacation-4 3s infinite;
+            img {
+                width: 100%;
+            }
+        }
+        img.radius {
+            width: 100%;
+            border-radius: 145px 5px 60px;
+            border: 10px solid #fff;
+        }
+    }
+    .part-text {
+        h2 {
+            font-size: 45px;
+            line-height: 54px;
+            font-weight: 800;
+            color: #222222;
+            margin-bottom: 23px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 28px;
+            color: #72839a;
+            font-weight: 500;
+        }
+        a {
+            margin-top: 15px;
+            display: inline-grid;
+        }
+    }
+    .part-video {
+        float: right;
+        position: relative;
+        height: 180px;
+        display: inline-block;
+        position: relative;
+        border: 6px solid $white;
+        margin-top: 138px;
+        img {
+            width: auto;
+            height: 100%;
+        }
+        a.play-button {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: $bg-color;
+            color: $white;
+            text-align: center;
+            line-height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            z-index: 2;
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: $bg-color-reverse;
+                @include transition($transition);
+                border-radius: 50%;
+                z-index: -1;
+                opacity: 0;
+            }
+            &:hover {
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

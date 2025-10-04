@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Invoice - Jaguar Web Solutions</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet" href="dist/bootstrap/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<link rel="stylesheet" href="dist/css/style.css">
+<link rel="stylesheet" href="dist/css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="dist/css/et-line-font/et-line-font.css">
+<link rel="stylesheet" href="dist/css/themify-icons/themify-icons.css">
+<link rel="icon" href="dist/img/favicon.png">
+
+<style>
+.invoice-container {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.invoice-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #333;
+  padding-bottom: 20px;
+}
+
+.invoice-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.company-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.company-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.company-info p {
+  margin: 2px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.client-info {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.client-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  text-transform: uppercase;
+}
+
+.client-info p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.client-info strong {
+  display: inline-block;
+  width: 140px;
+  color: #333;
+}
+
+.invoice-table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+.invoice-table thead {
+  background: #2c3e50;
+  color: white;
+}
+
+.invoice-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.invoice-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 14px;
+}
+
+.invoice-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.invoice-table .amount-col {
+  text-align: right;
+  font-weight: 600;
+}
+
+.invoice-total {
+  text-align: right;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #333;
+}
+
+.invoice-total h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.invoice-total .total-amount {
+  font-size: 32px;
+  color: #27ae60;
+  font-weight: 700;
+}
+
+.invoice-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.invoice-footer p {
+  font-size: 16px;
+  color: #27ae60;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.pay-now-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pay-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.pay-now-btn:active {
+  transform: translateY(0);
+}
+
+@media print {
+  .pay-now-btn, .main-header, .main-sidebar, .main-footer {
+    display: none;
+  }
+  .invoice-container {
+    box-shadow: none;
+    padding: 20px;
+  }
+}
+</style>
+</head>
+<body class="layout-boxed skin-blue sidebar-mini">
+<div class="wrapper boxed-wrapper">
+  <header class="main-header"> 
+    <!-- Logo --> 
+    <a href="index.html" class="logo blue-bg"> 
+    <!-- mini logo for sidebar mini 50x50 pixels --> 
+    <span class="logo-mini"><img src="dist/img/logo-n.png" alt=""></span> 
+    <!-- logo for regular state and mobile devices --> 
+    <span class="logo-lg"><img src="dist/img/logo.png" alt=""></span> </a> 
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar blue-bg navbar-static-top"> 
+      <!-- Sidebar toggle button-->
+      <ul class="nav navbar-nav pull-left">
+        <li><a class="sidebar-toggle" data-toggle="push-menu" href=""></a> </li>
+      </ul>
+      <div class="pull-left search-box">
+        <form action="#" method="get" class="search-form">
+          <div class="input-group">
+            <input name="search" class="form-control" placeholder="Search..." type="text">
+            <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i> </button>
+            </span></div>
+        </form>
+        <!-- search form --> </div>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-envelope-o"></i>
+            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 4 new messages</li>
+              <li>
+                <ul class="menu">
+                  <li><a href="#">
+                    <div class="pull-left"><img src="dist/img/img1.jpg" class="img-circle" alt="User Image"> <span class="profile-status online pull-right"></span></div>
+                    <h4>Alex C. Patton</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">9:30 AM</span></p>
+                    </a></li>
+                  <li><a href="#">
+                    <div class="pull-left"><img src="dist/img/img3.jpg" class="img-circle" alt="User Image"> <span class="profile-status offline pull-right"></span></div>
+                    <h4>Nikolaj S. Henriksen</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">10:15 AM</span></p>
+                    </a></li>
+                  <li><a href="#">
+                    <div class="pull-left"><img src="dist/img/img2.jpg" class="img-circle" alt="User Image"> <span class="profile-status away pull-right"></span></div>
+                    <h4>Kasper S. Jessen</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">8:45 AM</span></p>
+                    </a></li>
+                  <li><a href="#">
+                    <div class="pull-left"><img src="dist/img/img4.jpg" class="img-circle" alt="User Image"> <span class="profile-status busy pull-right"></span></div>
+                    <h4>Florence S. Kasper</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">12:15 AM</span></p>
+                    </a></li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View All Messages</a></li>
+            </ul>
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown messages-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-bell-o"></i>
+            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Notifications</li>
+              <li>
+                <ul class="menu">
+                  <li><a href="#">
+                    <div class="pull-left icon-circle red"><i class="icon-lightbulb"></i></div>
+                    <h4>Alex C. Patton</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">9:30 AM</span></p>
+                    </a></li>
+                  <li><a href="#">
+                    <div class="pull-left icon-circle blue"><i class="fa fa-coffee"></i></div>
+                    <h4>Nikolaj S. Henriksen</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">1:30 AM</span></p>
+                    </a></li>
+                  <li><a href="#">
+                    <div class="pull-left icon-circle green"><i class="fa fa-paperclip"></i></div>
+                    <h4>Kasper S. Jessen</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">9:30 AM</span></p>
+                    </a></li>
+                  <li><a href="#">
+                    <div class="pull-left icon-circle yellow"><i class="fa  fa-plane"></i></div>
+                    <h4>Florence S. Kasper</h4>
+                    <p>I've finished it! See you so...</p>
+                    <p><span class="time">11:10 AM</span></p>
+                    </a></li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">Check all Notifications</a></li>
+            </ul>
+          </li>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu p-ph-res"> 
+            
+            <a href="profile.html" class="dropdown-toggle"> <img src="dist/img/img1.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">Alexander Pierce</span> </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar"> 
+    <!-- sidebar: style can be found in sidebar.less -->
+    <div class="sidebar"> 
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="image text-center"><img src="dist/img/img1.jpg" class="img-circle" alt="User Image"> </div>
+        <div class="info">
+          <p>Alexander Pierce</p>
+          <a href="#"><i class="fa fa-cog"></i></a> <a href="#"><i class="fa fa-envelope-o"></i></a> <a href="#"><i class="fa fa-power-off"></i></a> </div>
+      </div>
+      
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">PERSONAL</li>
+        <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="index.html">Dashboard</a></li>
+          </ul>
+        </li>
+        <li class="header">EXTRA COMPONENTS</li>
+        <li class="treeview"> <a href="#"><i class="fa fa-bar-chart"></i> <span>Charts</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+          <ul class="treeview-menu">
+            <li><a href="chart-morris.html">Morris Chart</a></li>
+            <li><a href="chart-chartist.html">Chartis Chart</a></li>
+            
+            <li><a href="chart-knob.html">Knob Chart</a></li>
+            <li><a href="chart-chart-js.html">Chartjs</a></li>
+            <li><a href="chart-peity.html">Peity Chart</a></li>
+          </ul>
+        </li>
+        <li class="treeview"> <a href="#"> <i class="fa fa-files-o"></i> <span>Invoice</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+          <ul class="treeview-menu">
+            <li><a href="invoice.html">Invoice</a></li>
+          </ul>
+        </li>
+        <li class="treeview"> <a href="#"> <i class="fa fa-map-marker"></i> <span>Maps</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+          <ul class="treeview-menu">
+            <li><a href="map-google.html">Google Maps</a></li>
+            <li><a href="map-vector.html" class="active">Vector Maps</a></li>
+          </ul>
+        </li>
+
+
+      </ul>
+    </div>
+    <!-- /.sidebar --> 
+  </aside>
+  
+  <div class="content-wrapper"> 
+    <div class="content-header sty-one">
+      <h1 class="text-black">Invoice</h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="sub-bread"><i class="fa fa-angle-right"></i> Profile</li>
+        <li><i class="fa fa-angle-right"></i> Invoice</li>
+      </ol>
+    </div>
+    
+    <div class="content">
+      <div class="invoice-container">
+        <div class="company-info">
+          <h2>Jaguar Web Solutions</h2>
+          <p>PO Box 20110</p>
+          <p>New York, NY</p>
+        </div>
+
+        <div class="invoice-header">
+          <h1>INVOICE</h1>
+        </div>
+
+        <div class="client-info">
+          <h3>Client Information</h3>
+          <p><strong>Client Name:</strong> <span id="client-name">Loading...</span></p>
+          <p><strong>Client Address:</strong> <span id="client-address">Loading...</span></p>
+          <p><strong>Phone Number:</strong> <span id="client-phone">Loading...</span></p>
+          <p><strong>Email Address:</strong> <span id="client-email">Loading...</span></p>
+        </div>
+
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th class="amount-col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Web Design and Setup</td>
+              <td class="amount-col">$399.00</td>
+            </tr>
+            <tr>
+              <td>Monthly Hosting</td>
+              <td class="amount-col">$7.77</td>
+            </tr>
+            <tr>
+              <td>Service Up Fee (every 8 weeks)</td>
+              <td class="amount-col">$10.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="invoice-total">
+          <h3>TOTAL: <span class="total-amount">$416.77</span></h3>
+        </div>
+
+        <div class="invoice-footer">
+          <p>Get Your Dream Started with Jaguar Web Today!</p>
+          <a href="#" class="pay-now-btn">PAY NOW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">Version 1.2</div>
+    Copyright © 2017 Jaguar Web Solutions. All rights reserved.
+  </footer>
+</div>
+
+<script src="dist/js/jquery.min.js"></script> 
+<script src="dist/bootstrap/js/bootstrap.min.js"></script> 
+<script src="dist/js/niche.js"></script>
+
+<!-- Firebase v8 -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAKmAHeSqw6hX3Bvdi2cbGwCvprroObTK4",
+    authDomain: "jaguarwebsolutions-42b13.firebaseapp.com",
+    projectId: "jaguarwebsolutions-42b13",
+    storageBucket: "jaguarwebsolutions-42b13.firebasestorage.app",
+    messagingSenderId: "307062943289",
+    appId: "1:307062943289:web:f314717ffaa37ce7f8e7e8",
+    measurementId: "G-938MEPBEW8"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Check authentication and load user data
+auth.onAuthStateChanged(async (user) => {
+    if (user) {
+        console.log('User logged in:', user.uid);
+        await loadUserData(user.uid);
+    } else {
+        console.log('No user logged in, redirecting to login...');
+        // Redirect to login page if not authenticated
+        window.location.href = 'login.html';
+    }
+});
+
+// Load user data from Firestore
+async function loadUserData(userId) {
+    try {
+        const userDoc = await db.collection('users').doc(userId).get();
+        
+        if (userDoc.exists) {
+            const userData = userDoc.data();
+            console.log('User data loaded:', userData);
+            
+            // Populate invoice fields
+            document.getElementById('client-name').textContent = 
+                userData.displayName || `${userData.firstName || ''} ${userData.lastName || ''}`.trim() || 'N/A';
+            
+            // Build full address
+            const addressParts = [
+                userData.city || '',
+                userData.state || '',
+                userData.zipcode || '',
+                userData.country || ''
+            ].filter(part => part !== '');
+            
+            document.getElementById('client-address').textContent = 
+                addressParts.length > 0 ? addressParts.join(', ') : 'N/A';
+            
+            document.getElementById('client-phone').textContent = 
+                userData.phone || 'N/A';
+            
+            document.getElementById('client-email').textContent = 
+                userData.email || 'N/A';
+                
+        } else {
+            console.error('User document not found in Firestore');
+            showError('User data not found. Please complete your profile.');
+        }
+    } catch (error) {
+        console.error('Error loading user data:', error);
+        showError('Error loading user data: ' + error.message);
+    }
+}
+
+// Show error message
+function showError(message) {
+    document.getElementById('client-name').textContent = 'Error loading data';
+    document.getElementById('client-address').textContent = message;
+    document.getElementById('client-phone').textContent = '';
+    document.getElementById('client-email').textContent = '';
+}
+</script>
+</body>
+</html>
